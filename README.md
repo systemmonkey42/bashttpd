@@ -10,7 +10,7 @@ Requirements
 Examples
 ---------
 
-      socat TCP4-LISTEN:8080 EXEC:/usr/local/bin/bashttpd
+      socat TCP4-LISTEN:8080,reuseaddr EXEC:/usr/local/bin/bashttpd
 
 Or
 
@@ -18,7 +18,7 @@ Or
 
 Note that in the `socat` example above, the web server will immediately exit once the first connection closes. If you wish to serve to more than one client - like most servers do, then use the variant:
 
-     socat TCP4-LISTEN:8080,fork EXEC:/usr/local/bin/bashttpd
+     socat TCP4-LISTEN:8080,reuseaddr,fork EXEC:/usr/local/bin/bashttpd
 
 This way, a new process is spawned for each incoming connection.
 
